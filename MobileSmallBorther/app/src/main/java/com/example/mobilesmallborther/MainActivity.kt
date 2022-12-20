@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
     private fun enableListeners() {
         // Evenement afin de passer d'une fenêtre à une autre
         binding.btnMainActivityFeed.setOnClickListener {
-            val intent = Intent(this, InteractivityActivity::class.java)
+            val intent = Intent(this, RequestsActivity::class.java)
             startActivity(intent)
         }
 
-        binding.btnMainActivityGoToProfil.setOnClickListener {
+        /*binding.btnMainActivityGoToProfil.setOnClickListener {
             val intent = Intent(this, FormActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
         /*binding.btnMainActivityGoToImplicit.setOnClickListener {
             val intent = Intent(this, ImplicitActivity::class.java)

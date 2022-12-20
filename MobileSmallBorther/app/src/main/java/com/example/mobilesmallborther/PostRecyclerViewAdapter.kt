@@ -1,5 +1,6 @@
 package com.example.mobilesmallborther
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ class PostRecyclerViewAdapter(
     private val values: List<DtoInputPost>
 ) : RecyclerView.Adapter<PostRecyclerViewAdapter.ViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
@@ -26,7 +28,6 @@ class PostRecyclerViewAdapter(
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -48,9 +49,21 @@ class PostRecyclerViewAdapter(
         val titleView: TextView = binding.content
         val imageView: ImageView = binding.imageView
 
+        init {
+            itemView.setOnClickListener {
+                val builder = AlertDialog.Builder(itemView.context)
+                val item = values[bindingAdapterPosition]
+                builder.setTitle("Information de la disparition")
+                builder.setMessage(item.descriptionPost)
+                builder.setPositiveButton("OK") { _, _ ->
+                }
+                val dialog = builder.create()
+                dialog.show()
+            }
+        }
+
         override fun toString(): String {
             return super.toString() + " '" + titleView.text + "'"
         }
     }
-
 }

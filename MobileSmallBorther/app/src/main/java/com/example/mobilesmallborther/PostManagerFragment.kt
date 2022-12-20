@@ -35,12 +35,10 @@ class PostManagerFragment : Fragment() {
         // Nous lançons la requête
         viewModel.launchFetchAllPost()
 
-        return inflater.inflate(R.layout.fragment_post_manager, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PostManagerViewModel::class.java)
-        // TODO: Use the ViewModel
+    companion object {
+        fun newInstance() = PostManagerFragment()
     }
 }

@@ -1,6 +1,7 @@
 package com.example.mobilesmallborther
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ class PostRecyclerViewAdapter(
         val item = values[position]
         holder.idView.text = item.idPost.toString()
         holder.titleView.text = item.descriptionPost
+        Log.i("Valeur", item.descriptionPost)
     }
 
     override fun getItemCount(): Int = values.size

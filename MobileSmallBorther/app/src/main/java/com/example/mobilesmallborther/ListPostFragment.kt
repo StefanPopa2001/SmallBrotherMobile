@@ -41,6 +41,7 @@ class ListPostFragment : Fragment() {
     }
 
     companion object {
+        @JvmStatic
         fun newInstance() = ListPostFragment()
     }
 }

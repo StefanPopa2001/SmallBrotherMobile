@@ -22,8 +22,8 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_fragmentPostManager"
         android:name="com.example.mobilesmallborther.ListPostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="580dp"
+        android:layout_width="414dp"
+        android:layout_height="786dp"
         android:layout_marginTop="20dp"
         android:tag="postList"
         app:layout_constraintEnd_toEndOf="parent"

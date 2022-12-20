@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mobilesmallborther.databinding.FragmentPostItemBinding
 import com.example.mobilesmallbrother.dtos.DtoInputPost
 
@@ -29,8 +31,12 @@ class PostRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.idPost.toString()
-        holder.titleView.text = item.descriptionPost
+        holder.idView.text = item.datePost
+        holder.titleView.text = item.townDisparition
+        var url = item.urlImage
+        Glide.with(holder.imageView)
+            .load(url)
+            .into(holder.imageView)
         Log.i("Valeur", item.descriptionPost)
     }
 
@@ -38,8 +44,9 @@ class PostRecyclerViewAdapter(
 
     inner class ViewHolder(binding: FragmentPostItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
+        val idView: TextView = binding.itemPicture
         val titleView: TextView = binding.content
+        val imageView: ImageView = binding.imageView
 
         override fun toString(): String {
             return super.toString() + " '" + titleView.text + "'"

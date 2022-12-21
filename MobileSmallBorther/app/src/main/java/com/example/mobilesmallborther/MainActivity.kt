@@ -3,16 +3,20 @@ package com.example.mobilesmallborther
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.mobilesmallborther.databinding.ActivityMainBinding
+import com.example.mobilesmallbrother.dtos.DtoInputClient
 
-class MainActivity : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    lateinit var dtoInputClient: DtoInputClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        dtoInputClient = this.intent.getSerializableExtra("dtoInputClient") as DtoInputClient
         enableListeners()
     }
     private fun enableListeners() {
@@ -24,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnMainActivityGoToProfil.setOnClickListener {
             val intent = Intent(this, ProfilActivity::class.java)
+            intent.putExtra("dtoInputClient", dtoInputClient)
             startActivity(intent)
         }
 

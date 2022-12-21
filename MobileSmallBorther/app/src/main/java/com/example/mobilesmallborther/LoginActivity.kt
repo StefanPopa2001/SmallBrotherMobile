@@ -3,7 +3,6 @@ package com.example.mobilesmallborther
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.mobilesmallborther.databinding.ActivityLoginBinding
@@ -24,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
             if(viewModel.acceptLogin) {
                 Toast.makeText(this, "Bienvenue " + it?.firstName + " !", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("dtoInputClient", it)
                 startActivity(intent)
             }
             else {
@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLoginActivityConnection.setOnClickListener {
-            Log.i("test","ok")
             val clientLogin = DtoOutputLoginClient(
                 binding.etLoginActivityMail.text.toString(), binding.etLoginActivityPassword.text.toString())
 

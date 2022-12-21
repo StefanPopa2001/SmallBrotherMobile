@@ -20,6 +20,7 @@ class PostRecyclerViewAdapter(
     private val values: List<DtoInputPost>
 ) : RecyclerView.Adapter<PostRecyclerViewAdapter.ViewHolder>() {
 
+    var onItemOnClickListener:((item: DtoInputPost)-> Unit)? = null;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -41,6 +42,10 @@ class PostRecyclerViewAdapter(
             .load(url)
             .into(holder.imageView)
         Log.i("Valeur", item.descriptionPost)
+        holder.itemView.setOnClickListener{
+            val item = values[position]
+            onItemOnClickListener?.invoke(item)
+        }
     }
 
     override fun getItemCount(): Int = values.size
@@ -80,9 +85,6 @@ class PostRecyclerViewAdapter(
             }
 
         }
-
-
-
 
         override fun toString(): String {
             return super.toString() + " '" + titleView.text + "'"

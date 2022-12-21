@@ -2,20 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="500dp"
-    android:padding="15dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".DetailPostFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/image_item"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -36,18 +37,6 @@
 
     <!-- Details -->
 
-    <ImageView
-        android:id="@+id/close_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_close"
-        app:layout_constraintBottom_toTopOf="@+id/delete_animal"
-        app:layout_constraintEnd_toEndOf="@+id/delete_animal"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/delete_animal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
-
     <TextView
         android:id="@+id/popup_animal_details"
         android:layout_width="wrap_content"
@@ -58,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/popup_animal_details_subtitle"
+        android:id="@+id/popup_animal_datepost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
@@ -67,72 +56,42 @@
 
     <!-- Description -->
     <TextView
-        android:id="@+id/popup_animal_description"
+        android:id="@+id/popup_animal_typeAnimal"
         android:paddingTop="@dimen/margin_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
         app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/popup_animal_details_subtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_animal_datepost" />
 
 
     <TextView
-        android:id="@+id/popup_animal_description_subtitle"
+        android:id="@+id/popup_animal_breed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
-        app:layout_constraintStart_toStartOf="@+id/popup_animal_description"
-        app:layout_constraintTop_toBottomOf="@+id/popup_animal_description" />
-
-    <!-- State -->
-    <TextView
-        android:id="@+id/popup_animal_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_default"
-        android:text="test"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/popup_animal_description_subtitle" />
+        app:layout_constraintStart_toStartOf="@+id/popup_animal_typeAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/popup_animal_typeAnimal" />
 
     <TextView
-        android:id="@+id/popup_animal_state_subtitle"
+        android:id="@+id/popup_animal_town"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
-        app:layout_constraintStart_toStartOf="@+id/popup_animal_state"
-        app:layout_constraintTop_toBottomOf="@+id/popup_animal_state" />
+        app:layout_constraintStart_toStartOf="@+id/popup_animal_breed"
+        app:layout_constraintTop_toBottomOf="@+id/popup_animal_breed" />
 
-
-    <!-- Buttons -->
-    <View
-        android:id="@+id/view_separation"
-        android:layout_width="1dp"
-        android:layout_height="10dp"
-        android:layout_marginTop="@dimen/margin_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popup_animal_state_subtitle" />
 
     <ImageView
-        android:id="@+id/change_state_animal"
+        android:id="@+id/close_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_separation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_separation" />
+        android:layout_marginTop="31dp"
 
-    <ImageView
-        android:id="@+id/delete_animal"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_marginEnd="28dp"
         android:src="@drawable/ic_close"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view_separation"
-        app:layout_constraintTop_toBottomOf="@+id/view_separation" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

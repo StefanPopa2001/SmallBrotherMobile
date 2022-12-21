@@ -12,6 +12,7 @@ import com.example.mobilesmallbrother.dtos.DtoInputPost
 class ListPostFragment : Fragment() {
     private val postList: ArrayList<DtoInputPost> = arrayListOf()
     private val postAdapter = PostRecyclerViewAdapter(postList)
+    private lateinit var detailPostFragment: DetailPostFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +24,15 @@ class ListPostFragment : Fragment() {
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = LinearLayoutManager(context)
-                adapter = postAdapter
+                adapter = postAdapter.apply {
+                    onItemOnClickListener = {
+                        detailPostFragment = DetailPostFragment(it)
+                    parentFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView_fragmentPostManager, detailPostFragment)
+                        .commit()
+                    }
+                }
             }
         }
         return view

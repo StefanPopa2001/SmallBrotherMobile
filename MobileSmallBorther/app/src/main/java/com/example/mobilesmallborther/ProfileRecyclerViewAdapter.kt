@@ -9,10 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mobilesmallborther.databinding.FragmentProfilItemBinding
-import com.example.mobilesmallbrother.dtos.DtoInputPost
+import com.example.mobilesmallbrother.dtos.DtoInputAnimal
+
 
 class ProfileRecyclerViewAdapter(
-private val values: List<DtoInputPost>
+private val values: List<DtoInputAnimal>
 ) : RecyclerView.Adapter<ProfileRecyclerViewAdapter.ViewHolder>() {
 
 
@@ -41,18 +42,6 @@ private val values: List<DtoInputPost>
         RecyclerView.ViewHolder(binding.root) {
         val imageView: ImageView = binding.ivfragmentMyAnimalsCard
 
-        init {
-            itemView.setOnClickListener {
-                val builder = AlertDialog.Builder(itemView.context)
-                val item = values[bindingAdapterPosition]
-                builder.setTitle("Information de la disparition")
-                builder.setMessage(item.descriptionPost)
-                builder.setPositiveButton("OK") { _, _ ->
-                }
-                val dialog = builder.create()
-                dialog.show()
-            }
-        }
 
         override fun toString(): String {
             return super.toString() + " '" + "'"

@@ -23,17 +23,17 @@ class ProfilManagerFragment : Fragment() {
         listProfilFragment = childFragmentManager.findFragmentByTag("animauxList") as ListProfilFragment
 
         // Nous observons la liste
-        viewModel.mutableLiveDataListPost.observe(viewLifecycleOwner) {
+        viewModel.mutableLiveDataByIdClientAnimal.observe(viewLifecycleOwner) {
             Log.i("test",it.toString())
-            listProfilFragment.replacePostList(it)
+            if (it != null) {
+                listProfilFragment.replaceAnimalList(it)
+            }
         }
 
-        viewModel.mutableLiveDataCreatePost.observe(viewLifecycleOwner) {
-            listProfilFragment.addPost(it)
+        viewModel.mutableLiveDataCreateAnimal.observe(viewLifecycleOwner) {
+            listProfilFragment.addAnimal(it)
         }
-
-        // Nous lançons la requête
-        viewModel.launchFetchAllPost()
+        viewModel.launchFetchByIdClient(it)
 
         return binding.root
     }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout.HORIZONTAL
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilesmallbrother.dtos.DtoInputPost
 
@@ -23,7 +24,7 @@ class ListProfilFragment : Fragment() {
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
-                layoutManager = LinearLayoutManager(context)
+                layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                 adapter = profilAdapter
             }
         }

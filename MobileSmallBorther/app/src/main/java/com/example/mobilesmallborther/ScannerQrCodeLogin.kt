@@ -14,6 +14,7 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.mobilesmallbrother.dtos.DtoOutputLoginClient
 
 class ScannerQrCodeLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,6 +70,10 @@ class ScannerQrCodeLogin : AppCompatActivity() {
                     val mail = it.text.split(",")
 
                     //Mettre la co ici
+                    val data = DtoOutputLoginClient(mail = mail.get(0), hashedPassword = mail.get(1))
+
+                    
+
                     Toast.makeText(this, "${mail.get(0)}${mail.get(1)}", Toast.LENGTH_LONG).show()
 
                     

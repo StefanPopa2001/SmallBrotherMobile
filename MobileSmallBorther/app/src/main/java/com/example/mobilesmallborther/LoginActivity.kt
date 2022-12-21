@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(ClientManagerViewModel::class.java)
         setContentView(binding.root)
 
+
         viewModel.mutableLiveDataLoginClient.observe(this) {
             if(viewModel.acceptLogin) {
                 Toast.makeText(this, "Bienvenue " + it?.firstName + " !", Toast.LENGTH_LONG).show()
@@ -36,6 +37,11 @@ class LoginActivity : AppCompatActivity() {
                 binding.etLoginActivityMail.text.toString(), binding.etLoginActivityPassword.text.toString())
 
             viewModel.launchFetchByLogin(clientLogin)
+        }
+
+        binding.buttonScanCodeQr.setOnClickListener{
+            val intent = Intent(this, ScannerQrCodeLogin::class.java)
+            startActivity(intent)
         }
     }
 }

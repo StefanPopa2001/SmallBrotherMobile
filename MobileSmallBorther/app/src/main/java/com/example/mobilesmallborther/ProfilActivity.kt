@@ -8,8 +8,12 @@ import com.example.mobilesmallborther.databinding.ActivityProfilBinding
 import com.example.mobilesmallbrother.dtos.DtoInputClient
 
 class ProfilActivity : AppCompatActivity() {
+
+    lateinit var dtoInputClient: DtoInputClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil)
+        dtoInputClient = this.intent.getSerializableExtra("dtoInputClient") as DtoInputClient
     }
 }

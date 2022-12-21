@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*binding.btnMainActivityGoToProfil.setOnClickListener {
-            val intent = Intent(this, FormActivity::class.java)
+        binding.btnMainActivityGoToProfil.setOnClickListener {
+            val intent = Intent(this, ProfilActivity::class.java)
             startActivity(intent)
-        }*/
+        }
 
         /*binding.btnMainActivityGoToImplicit.setOnClickListener {
             val intent = Intent(this, ImplicitActivity::class.java)

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestsActivity">
+    tools:context=".ProfilActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="com.example.mobilesmallborther.PostManagerFragment"
+        android:name="com.example.mobilesmallborther.ProfilManagerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_post_manager" />
+        tools:layout="@layout/fragment_profil_manager" />
 </androidx.constraintlayout.widget.ConstraintLayout>

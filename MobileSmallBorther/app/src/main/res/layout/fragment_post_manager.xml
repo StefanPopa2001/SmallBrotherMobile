@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/frameLayoutPost"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PostManagerFragment" >
@@ -17,7 +17,19 @@
         app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView_fragmentPostManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/btn_fragmentPostManager_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="(Maintener une carte pour localiser)"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView_fragmentPostManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fragmentPostManager_displayCreatePost" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_fragmentPostManager"
@@ -28,6 +40,6 @@
         android:tag="postList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_fragmentPostManager_displayCreatePost"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fragmentPostManager_display"
         tools:layout="@layout/fragment_post_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

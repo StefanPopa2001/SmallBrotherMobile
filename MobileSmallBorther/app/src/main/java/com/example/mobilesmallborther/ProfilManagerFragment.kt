@@ -30,6 +30,7 @@ class ProfilManagerFragment : Fragment() {
         viewModel.mutableLiveDataByIdClientAnimal.observe(viewLifecycleOwner) {
             if (it != null) {
                 listProfilFragment.replaceAnimalList(it)
+                Log.i("test",it.toString())
             }
         }
 

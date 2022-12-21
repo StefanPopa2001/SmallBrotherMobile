@@ -10,7 +10,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:orientation="horizontal"
-    android:tag="animauxList"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ListProfilFragment"
     tools:listitem="@layout/fragment_profil_item"

@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout.HORIZONTAL
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobilesmallbrother.dtos.DtoInputPost
+import com.example.mobilesmallbrother.dtos.DtoInputAnimal
 
 class ListProfilFragment : Fragment() {
-    private val profilList: ArrayList<DtoInputPost> = arrayListOf()
+    private val profilList: ArrayList<DtoInputAnimal> = arrayListOf()
     private val profilAdapter = ProfileRecyclerViewAdapter(profilList)
 
     override fun onCreateView(
@@ -31,19 +29,19 @@ class ListProfilFragment : Fragment() {
         return view
     }
 
-    fun replacePostList(list: List<DtoInputPost>) {
+    fun replaceAnimalList(list: List<DtoInputAnimal>) {
         profilList.clear()
         profilList.addAll(list)
         profilAdapter.notifyDataSetChanged()
     }
 
-    fun addPost(dto: DtoInputPost) {
+    fun addAnimal(dto: DtoInputAnimal) {
         profilList.add(dto)
         profilAdapter.notifyDataSetChanged()
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = ListPostFragment()
+        fun newInstance() = ListProfilFragment()
     }
 }

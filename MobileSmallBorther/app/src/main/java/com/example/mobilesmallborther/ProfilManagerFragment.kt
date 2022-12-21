@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.mobilesmallborther.databinding.FragmentProfilManagerBinding
+import com.example.mobilesmallbrother.dtos.DtoInputClient
 
 class ProfilManagerFragment : Fragment() {
     private lateinit var viewModel: ProfilManagerViewModel
     private lateinit var binding: FragmentProfilManagerBinding
     private lateinit var listProfilFragment: ListProfilFragment
+    lateinit var dtoInputClient: DtoInputClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,19 +23,21 @@ class ProfilManagerFragment : Fragment() {
         binding = FragmentProfilManagerBinding.inflate(layoutInflater, container, false)
         viewModel = ViewModelProvider(this).get(ProfilManagerViewModel::class.java)
         listProfilFragment = childFragmentManager.findFragmentByTag("animauxList") as ListProfilFragment
+        dtoInputClient = (activity as ProfilActivity).dtoInputClient
+        Log.i("test",dtoInputClient.toString())
 
         // Nous observons la liste
-        viewModel.mutableLiveDataListPost.observe(viewLifecycleOwner) {
-            Log.i("test",it.toString())
-            listProfilFragment.replacePostList(it)
+        viewModel.mutableLiveDataByIdClientAnimal.observe(viewLifecycleOwner) {
+            if (it != null) {
+                listProfilFragment.replaceAnimalList(it)
+                Log.i("test",it.toString())
+            }
         }
 
-        viewModel.mutableLiveDataCreatePost.observe(viewLifecycleOwner) {
-            listProfilFragment.addPost(it)
+        viewModel.mutableLiveDataCreateAnimal.observe(viewLifecycleOwner) {
+            listProfilFragment.addAnimal(it)
         }
-
-        // Nous lançons la requête
-        viewModel.launchFetchAllPost()
+        viewModel.launchFetchByIdClient(dtoInputClient.idClient)
 
         return binding.root
     }

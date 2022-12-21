@@ -7,7 +7,7 @@ import android.util.Log
 import com.example.mobilesmallborther.databinding.ActivityMainBinding
 import com.example.mobilesmallbrother.dtos.DtoInputClient
 
-class MainActivity() : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var dtoInputClient: DtoInputClient

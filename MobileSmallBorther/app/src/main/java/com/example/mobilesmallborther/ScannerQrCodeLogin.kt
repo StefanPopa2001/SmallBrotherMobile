@@ -1,6 +1,7 @@
 package com.example.mobilesmallborther
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,18 +9,26 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.mobilesmallborther.databinding.ActivityLoginBinding
 import com.example.mobilesmallbrother.dtos.DtoOutputLoginClient
 
 class ScannerQrCodeLogin : AppCompatActivity() {
+    lateinit var viewModel: ClientManagerViewModel
+    lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner_qr_code_login)
+
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(this).get(ClientManagerViewModel::class.java)
 
         if (ContextCompat.checkSelfPermission(
                 this@ScannerQrCodeLogin,
@@ -70,13 +79,36 @@ class ScannerQrCodeLogin : AppCompatActivity() {
                     val mail = it.text.split(",")
 
                     //Mettre la co ici
-                    val data = DtoOutputLoginClient(mail = mail.get(0), hashedPassword = mail.get(1))
+                    val data = DtoOutputLoginClient(mail = mail[0], hashedPassword = mail[1])
 
-                    
 
-                    Toast.makeText(this, "${mail.get(0)}${mail.get(1)}", Toast.LENGTH_LONG).show()
 
-                    
+
+
+                    viewModel.mutableLiveDataLoginClient.observe(this) {
+
+                        if(viewModel.acceptLogin)
+                        {
+                            //Toast.makeText(this, "${mail[0]}${mail[1]}", Toast.LENGTH_LONG).show()
+
+                            Toast.makeText(this, "Bienvenue " + it?.firstName + " !", Toast.LENGTH_LONG).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("dtoInputClient", it)
+                            startActivity(intent)
+
+                        }
+                        else
+                        {
+                            //Toast.makeText(this, "${mail[0]}${mail[1]}", Toast.LENGTH_LONG).show()
+
+                            Toast.makeText(this, "Invalid login QR code", Toast.LENGTH_LONG).show()
+
+                        }
+
+                    }
+                    viewModel.launchFetchByLogin(data)
+
+
 
                 }
             }

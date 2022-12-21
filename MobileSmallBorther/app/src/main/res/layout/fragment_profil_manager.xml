@@ -21,15 +21,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_fragmentProfilManager"
         android:name="com.example.mobilesmallborther.ListProfilFragment"
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="786dp"
         android:layout_marginTop="20dp"
         android:tag="animauxList"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_fragmentProfilManager"
-        tools:layout="@layout/fragment_profil_list" />
+        tools:layout="@layout/fragment_profil_list"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

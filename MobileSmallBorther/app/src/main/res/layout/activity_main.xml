@@ -4,15 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_accueil"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_mainActivity_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="64dp"
+        android:text="SmallBrother"
+        android:textSize="60sp"
+        android:textColor="#ffffff"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="152dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mainActivity_title">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_MainActivity_feed"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Disparitions"
+                android:textSize="20sp"
+                android:textColor="#a23df9"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_MainActivity_goToProfil"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Profil"
+                android:textSize="20sp"
+                android:background="@color/white"
+                android:textColor="#a23df9"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_MainActivity_goToCreate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Ajouter un animal"
+                android:textSize="20sp"
+                android:background="@color/white"
+                android:textColor="#a23df9"/>
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

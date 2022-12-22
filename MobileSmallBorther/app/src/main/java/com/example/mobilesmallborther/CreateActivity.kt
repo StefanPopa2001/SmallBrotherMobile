@@ -35,12 +35,18 @@ class CreateActivity : AppCompatActivity() {
             val genderIdSelected = binding.rgGenderCreate.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(genderIdSelected)
 
-            val animalCreate = DtoOutputCreateAnimal(binding.inputNameCreate.text.toString(), binding.inputRaceCreate.text.toString(),
-            binding.cbPuceCreate.isChecked, binding.inputDateCreate.text.toString(), binding.inputDescriptionCreate.text.toString(),
-            binding.spHeightCreate.selectedItem.toString(), radioButton.text.toString(), binding.inputTypeCreate.text.toString(), "N",
-            binding.inputUrlCreate.text.toString(), dtoInputClient.idClient)
+            if(binding.inputNameCreate.text.isNotEmpty() && binding.inputRaceCreate.text.isNotEmpty() && binding.inputDateCreate.text.isNotEmpty() &&
+                    binding.inputDescriptionCreate.text.isNotEmpty() && binding.inputTypeCreate.text.isNotEmpty() && binding.inputUrlCreate.text.isNotEmpty()) {
+                val animalCreate = DtoOutputCreateAnimal(binding.inputNameCreate.text.toString(), binding.inputRaceCreate.text.toString(),
+                    binding.cbPuceCreate.isChecked, binding.inputDateCreate.text.toString(), binding.inputDescriptionCreate.text.toString(),
+                    binding.spHeightCreate.selectedItem.toString(), radioButton.text.toString(), binding.inputTypeCreate.text.toString(), "N",
+                    binding.inputUrlCreate.text.toString(), dtoInputClient.idClient)
 
-            viewModel.launchCreate(animalCreate)
+                viewModel.launchCreate(animalCreate)
+            }
+            else {
+                Toast.makeText(this, "Veuillez compléter tous les champs", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

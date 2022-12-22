@@ -25,7 +25,7 @@ class ProfilManagerFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ProfilManagerViewModel::class.java)
         listProfilFragment = childFragmentManager.findFragmentByTag("animauxList") as ListProfilFragment
         dtoInputClient = (activity as ProfilActivity).dtoInputClient
-        Log.i("test",dtoInputClient.toString())
+        binding.tvFragmentProfilManagerName.text = dtoInputClient.lastName + " " + dtoInputClient.firstName
 
         // Nous observons la liste
         viewModel.mutableLiveDataByIdClientAnimal.observe(viewLifecycleOwner) {

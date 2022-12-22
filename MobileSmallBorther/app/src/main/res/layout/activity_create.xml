@@ -26,6 +26,7 @@
         android:ems="10"
         android:hint="Nom"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
         android:ems="10"
         android:hint="Race"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_name_create" />
@@ -60,6 +62,7 @@
         android:ems="10"
         android:hint="YYYY-JJ-MM"
         android:inputType="date"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cb_puce_create" />
@@ -72,6 +75,7 @@
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_date_create" />
@@ -90,6 +94,7 @@
             android:id="@+id/rb_male_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="M" />
 
         <RadioButton
@@ -105,6 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:entries="@array/spinnerItems"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,6 +124,7 @@
         android:ems="10"
         android:hint="Type d'animal"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg_gender_create" />
@@ -130,6 +137,7 @@
         android:ems="10"
         android:hint="URL Image"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_type_create" />
@@ -138,7 +146,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:text="cm"
         app:layout_constraintStart_toEndOf="@+id/sp_height_create"
         app:layout_constraintTop_toBottomOf="@+id/input_description_create" />

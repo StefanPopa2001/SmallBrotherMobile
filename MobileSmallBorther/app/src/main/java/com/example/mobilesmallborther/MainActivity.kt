@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnMainActivityGoToCreate.setOnClickListener {
             val intent = Intent(this, CreateActivity::class.java)
+            intent.putExtra("dtoInputClient", dtoInputClient)
             startActivity(intent)
         }
 

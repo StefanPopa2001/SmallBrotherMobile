@@ -40,7 +40,7 @@
                 android:layout_width="316dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text="Feed"
+                android:text="Disparitions"
                 android:textSize="20sp"
                 android:textColor="#a23df9"/>
         </TableRow>

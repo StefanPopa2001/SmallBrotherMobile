@@ -21,6 +21,8 @@ class DetailPostFragment(post : DtoInputPost): Fragment() {
     private val postSelection = post
     private lateinit var viewModel: PostManagerViewModel
 
+    var onItemOnClickListener:((item: DtoInputPost)-> Unit)? = null;
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +36,10 @@ class DetailPostFragment(post : DtoInputPost): Fragment() {
         val viewHolder = ViewHolder(view)
         onBindViewHolder(viewHolder)
 
+
         return view
+
+
     }
 
     inner class ViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -73,4 +78,9 @@ class DetailPostFragment(post : DtoInputPost): Fragment() {
             .load(url)
             .into(holder.imageView)
     }
+
+
+
+
+
 }

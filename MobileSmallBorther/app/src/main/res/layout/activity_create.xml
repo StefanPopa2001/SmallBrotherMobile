@@ -22,7 +22,7 @@
         android:id="@+id/input_name_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="Nom"
         android:inputType="textPersonName"
@@ -34,6 +34,7 @@
         android:id="@+id/input_race_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Race"
         android:inputType="textPersonName"
@@ -45,6 +46,7 @@
         android:id="@+id/cb_puce_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Animal pucé "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +56,7 @@
         android:id="@+id/input_date_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="YYYY-JJ-MM"
         android:inputType="date"
@@ -65,6 +68,7 @@
         android:id="@+id/input_description_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
@@ -76,6 +80,7 @@
         android:id="@+id/rg_gender_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,16 +103,18 @@
         android:id="@+id/sp_height_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:entries="@array/spinnerItems"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="278dp" />
+        app:layout_constraintTop_toBottomOf="@+id/input_description_create" />
 
     <EditText
         android:id="@+id/input_type_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Type d'animal"
         android:inputType="textPersonName"
@@ -119,6 +126,7 @@
         android:id="@+id/input_url_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="URL Image"
         android:inputType="textPersonName"
@@ -130,8 +138,19 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="cm"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="281dp" />
+        app:layout_constraintStart_toEndOf="@+id/sp_height_create"
+        app:layout_constraintTop_toBottomOf="@+id/input_description_create" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Ajouter un animal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

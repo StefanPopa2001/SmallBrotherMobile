@@ -1,9 +1,12 @@
 package com.example.mobilesmallborther
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,6 +18,7 @@ import com.example.mobilesmallborther.PostRecyclerViewAdapter.ViewHolder
 import com.example.mobilesmallborther.databinding.FragmentPopupAnimalBinding
 import com.example.mobilesmallborther.databinding.FragmentProfilListBinding
 import com.example.mobilesmallbrother.dtos.DtoInputPost
+import org.w3c.dom.Text
 
 class DetailPostFragment(post : DtoInputPost): Fragment() {
     private lateinit var binding: FragmentPopupAnimalBinding
@@ -52,10 +56,32 @@ class DetailPostFragment(post : DtoInputPost): Fragment() {
         val animalBreed: TextView = itemView.findViewById(R.id.popup_animal_breed)
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val cross: ImageView = itemView.findViewById(R.id.close_button)
+        val btn: Button = itemView.findViewById(R.id.btn_contact)
+        val namePeople: TextView = itemView.findViewById(R.id.popup_animal_proprio)
 
         init{
             cross.setOnClickListener {
                 activity?.finish()
+            }
+
+            btn.setOnClickListener {
+
+
+                    val mailReciever = postSelection.animalPost.clientAnimalPost.mail
+                    val nameAnimal = postSelection.animalPost.nameAnimal
+                    val datePost = postSelection.datePost
+
+                    val selectorIntent = Intent(Intent.ACTION_SENDTO)
+                    selectorIntent.data = Uri.parse("mailto:")
+
+                    val emailIntent = Intent(Intent.ACTION_SEND)
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(mailReciever))
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Disparition de $nameAnimal")
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Ce mail concerne le post de la disparition de $nameAnimal le $datePost")
+                    emailIntent.selector = selectorIntent
+
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."))
+                    true
             }
         }
 
@@ -67,6 +93,7 @@ class DetailPostFragment(post : DtoInputPost): Fragment() {
     fun onBindViewHolder(holder: ViewHolder) {
 
         val item = postSelection
+        holder.namePeople.text = item.animalPost.clientAnimalPost.mail
         holder.nameAnimal.text = item.animalPost.nameAnimal
         holder.descriptionView.text = item.descriptionPost
         holder.datePost.text = item.datePost

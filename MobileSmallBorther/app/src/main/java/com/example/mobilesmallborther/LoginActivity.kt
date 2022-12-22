@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.buttonScanCodeQr.setOnClickListener{
-            val intent = Intent(this, ScannerQrCodeLogin::class.java)
+            val intent = Intent(this, LoginQRCode::class.java)
             startActivity(intent)
         }
     }

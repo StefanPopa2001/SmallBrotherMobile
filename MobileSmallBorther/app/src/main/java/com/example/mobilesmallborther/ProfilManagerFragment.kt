@@ -1,5 +1,6 @@
 package com.example.mobilesmallborther
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,12 +16,6 @@ class ProfilManagerFragment : Fragment() {
     private lateinit var binding: FragmentProfilManagerBinding
     private lateinit var listProfilFragment: ListProfilFragment
     lateinit var dtoInputClient: DtoInputClient
-    private var formCreateFrofilFragment = FormCreateProfilFragment.newInstance {
-        viewModel.launchCreate(it)
-        childFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView_fragmentProfilManager, listProfilFragment)
-            .commit()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,13 +33,6 @@ class ProfilManagerFragment : Fragment() {
                 listProfilFragment.replaceAnimalList(it)
                 Log.i("test",it.toString())
             }
-        }
-
-        binding.btnFragmentProfilManager.setOnClickListener {
-            childFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragmentContainerView_fragmentProfilManager, formCreateFrofilFragment)
-                .commit()
         }
 
         viewModel.mutableLiveDataCreateAnimal.observe(viewLifecycleOwner) {

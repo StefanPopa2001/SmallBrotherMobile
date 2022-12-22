@@ -39,6 +39,9 @@ class LoginActivity : AppCompatActivity() {
             viewModel.launchFetchByLogin(clientLogin)
         }
 
-
+        binding.buttonScanCodeQr.setOnClickListener{
+            val intent = Intent(this, ScannerQrCodeLogin::class.java)
+            startActivity(intent)
+        }
     }
 }

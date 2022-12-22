@@ -5,12 +5,13 @@
     android:id="@+id/frameLayoutprofil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilManagerFragment" >
+    tools:context=".ProfilManagerFragment">
 
     <TextView
-        android:id="@+id/btn_fragmentProfilManager"
+        android:id="@+id/tv_fragmentProfilManager"
+        style="@style/StyleTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="Mon profil"
@@ -21,16 +22,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_fragmentProfilManager"
         android:name="com.example.mobilesmallborther.ListProfilFragment"
         android:layout_width="match_parent"
         android:layout_height="786dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:tag="animauxList"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_fragmentProfilManager"
-        tools:layout="@layout/fragment_profil_list"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tv_fragmentProfilManager"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout="@layout/fragment_profil_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

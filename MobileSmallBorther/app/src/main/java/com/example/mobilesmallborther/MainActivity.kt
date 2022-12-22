@@ -32,10 +32,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*binding.btnMainActivityGoToImplicit.setOnClickListener {
-            val intent = Intent(this, ImplicitActivity::class.java)
+        binding.btnMainActivityGoToCreate.setOnClickListener {
+            val intent = Intent(this, CreateActivity::class.java)
+            intent.putExtra("dtoInputClient", dtoInputClient)
             startActivity(intent)
-        }*/
+        }
 
     }
 }

@@ -5,11 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginQRCode">
-    <Button
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/txt_scanner_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Small-Login"
+            android:textSize="34sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="70dp" />
+
+        <TextView
+            android:id="@+id/txt_scanner_text"
+            android:layout_width="372dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+
+            android:text="Utilisez la fonctionalité Small-Login™ de SmallBrother pour vous connecter plus facilement à l'application android!
+            \n\nPour cela, appuyez sur le bouton 'SCAN', et mettez devant le lecteur de codes QR l'image d'un code QR Small-Login™" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Scan" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan"
-        android:layout_centerInParent="true"
-        android:id="@+id/btn_scan"
-        />
+        android:layout_height="60dp"
+        android:layout_weight="1" />
+
+
 </RelativeLayout>
